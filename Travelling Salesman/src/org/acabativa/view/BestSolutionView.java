@@ -14,6 +14,7 @@ public class BestSolutionView extends AbstractBasicView {
 	
 	public BestSolutionView(TSController controller, TSModel model) {
 		super(controller, model);
+		frame.setLocation(0,0);
 	}
 	
 	public void paint(Graphics g) {
@@ -24,6 +25,16 @@ public class BestSolutionView extends AbstractBasicView {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	protected int getHeightFrame() {
+		return 500;
+	}
+
+	@Override
+	protected int getWidthFrame() {
+		return 500;
 	}
 
 

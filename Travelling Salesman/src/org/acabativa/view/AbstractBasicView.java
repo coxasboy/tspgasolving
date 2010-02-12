@@ -18,18 +18,23 @@ public abstract class AbstractBasicView extends JPanel implements ActionListener
 	TSController controller;
 	TSModel model;
 	JFrame frame;
-		
+			
 	public AbstractBasicView(TSController controller, TSModel model) {
 		this.controller = controller;
 		this.model = model;
 		model.addObserver(this);
 		frame = new JFrame("TS Experiment");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(MAX_WIDHT + 17 , MAX_HEIGHT + 37);
-		frame.setLocationRelativeTo(null);
+		System.out.println(getWidth());
+		System.out.println(getHeight());
+		frame.setSize(getWidthFrame() + 17 , getHeightFrame() + 37);
 		frame.add(this);
 		frame.setVisible(true);
 	}
+	
+	protected abstract int getWidthFrame();
+	
+	protected abstract int getHeightFrame();
 	
 	public void actionPerformed(ActionEvent e) {
 		repaint();

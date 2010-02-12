@@ -14,6 +14,7 @@ public class FitnessView extends AbstractBasicView{
 	
 	public FitnessView(TSController controller, TSModel model) {
 		super(controller, model);
+		frame.setLocation(534,0);
 	}
 	
 	public void paint(Graphics g) {
@@ -24,6 +25,16 @@ public class FitnessView extends AbstractBasicView{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	protected int getHeightFrame() {
+		return 200;
+	}
+
+	@Override
+	protected int getWidthFrame() {
+		return 300;
 	}
 
 
