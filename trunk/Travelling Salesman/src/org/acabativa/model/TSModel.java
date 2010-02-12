@@ -17,8 +17,8 @@ public class TSModel implements Observable{
 	
 	List<Observer> observers = new ArrayList<Observer>(); 
 	
-	int iterations = 1000;
-	int numberOfCitys = 60;
+	int iterations = 2000;
+	int numberOfCitys = 40;
 	int popSize = 1000;
 	
 	PopulationHandler handler = null;
