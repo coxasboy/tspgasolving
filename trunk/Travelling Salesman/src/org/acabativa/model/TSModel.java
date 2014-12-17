@@ -21,8 +21,18 @@ public class TSModel implements Observable{
 	int numberOfCitys = 40;
 	int popSize = 1000;
 	
+	private boolean end = false;
+	
 	PopulationHandler handler = null;
 	
+	public void reset(){
+		this.iterations = 2000;
+		this.numberOfCitys = 40;
+		this.popSize = 1000;
+		this.observers = new ArrayList<Observer>();
+		this.handler = null;
+	}
+		
 	public void stop(){
 		iterations = 0;
 	}
@@ -52,8 +62,17 @@ public class TSModel implements Observable{
 			notifyAll("New Iteration");
 		}	
 		logger.info("***********");
+		end = true;
 	}
 	
+	public boolean isEnd() {
+		return end;
+	}
+
+	public void setEnd(boolean end) {
+		this.end = end;
+	}
+
 	private  void notifyAll(String event){
 		for (Observer observer : observers) {
 			observer.notifyEvent(event);
