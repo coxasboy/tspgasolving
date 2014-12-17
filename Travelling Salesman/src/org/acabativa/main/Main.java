@@ -12,7 +12,7 @@ public class Main {
 		
 		TSModel model = new TSModel();
 		TSController controller = new TSControllerImpl(model);
-		
+				
 	}
 	
 	

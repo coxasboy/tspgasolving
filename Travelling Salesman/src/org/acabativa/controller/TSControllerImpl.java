@@ -13,14 +13,35 @@ public class TSControllerImpl implements TSController{
 	public TSControllerImpl(TSModel model) {
 		super();
 		this.model = model;
-		this.bestSolutionView = new BestSolutionView(this, model);
-		this.fitnessView = new FitnessView(this, model);
 		start();	
 	}	
+	
+	public void iterate(){
+		model.reset();
+		if(this.bestSolutionView!=null && this.fitnessView!=null){
+			this.bestSolutionView.setVisible(false);
+			this.fitnessView.setVisible(false);
+			
+		}
+		this.bestSolutionView = new BestSolutionView(this, model);
+		this.fitnessView = new FitnessView(this, model);
+		model.start();		
+		
+	}
 
 	@Override
 	public void start() {
-		model.start();
+		while(true){
+			iterate();
+			while(!model.isEnd()){
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 	@Override
